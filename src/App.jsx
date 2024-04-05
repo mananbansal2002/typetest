@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import  Result  from './components/Result/Result';
 import Typingtest from './components/Typingtest/Typingtest';
+import './App.css';
 const App = () => {
   const [selectedTime, setSelectedTime] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
@@ -49,41 +50,7 @@ const App = () => {
         />
       )}
       {selectedTime !== 0 && !isTyping && <Result wpm={wpm} onRestart={handleRestart} />}
-      <style jsx>{`
-        .container {
-          background-color: #f8f9fa;
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          min-height: 100vh;
-          font-family: 'Arial', sans-serif;
-        }
-        h1 {
-          color: #007bff;
-          margin-bottom: 20px;
-        }
-        .timer-options {
-          margin-bottom: 20px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        button {
-          padding: 8px 16px;
-          font-size: 16px;
-          background-color: #007bff;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s;
-        }
-        button:hover {
-          background-color: #0056b3;
-        }
-      `}</style>
-
+      
 
 {!isTyping && wpm === null && (
         <div className="dropdown">
