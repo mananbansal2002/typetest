@@ -5,6 +5,14 @@ const App = () => {
   const [selectedTime, setSelectedTime] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [wpm, setWPM] = useState(null);
+  const [carType, setCarType] = useState("car"); // Default car type is "car"
+
+  const handleCarTypeChange = (event) => {
+    setCarType(event.target.value);
+  };
+
+
+
 
   const handleStart = (time) => {
     setSelectedTime(time);
@@ -37,6 +45,7 @@ const App = () => {
           onFinish={handleFinish}
           setWPM={setWPM}
           wpm={wpm}
+          carType = {carType}
         />
       )}
       {selectedTime !== 0 && !isTyping && <Result wpm={wpm} onRestart={handleRestart} />}
@@ -74,6 +83,19 @@ const App = () => {
           background-color: #0056b3;
         }
       `}</style>
+
+
+{!isTyping && wpm === null && (
+        <div className="dropdown">
+        <select value={carType} onChange={handleCarTypeChange}>
+          <option value="car">&#x1F697;</option> {/* Car icon */}
+          <option value="jeep">&#x1F699;</option> {/* Jeep icon */}
+          <option value="bike">&#x1F3CD;</option> {/* Bike icon */}
+        </select>
+        <span className="arrow"></span>
+      </div>
+    )}
+
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import  SpeedBar  from "../Speedbar/Speedbar";
- const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm }) => {
+ const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType }) => {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typedWords, setTypedWords] = useState([]);
@@ -11,7 +11,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
   const [startTime, setStartTime] = useState(null);
   const [carPosition, setCarPosition] = useState(0);
   const divRef = useRef(null);
-
+  
   const generateWords = () => {
     const randomWords = [
       'apple', 'banana', 'orange', 'grape', 'kiwi', 'strawberry', 'blueberry', 'pineapple', 'watermelon', 'mango',
@@ -59,13 +59,29 @@ import  SpeedBar  from "../Speedbar/Speedbar";
         setCorrectWordsCount(prevCount => prevCount + 1);
       }
       setCurrentIndex(prevIndex => Math.min(prevIndex + 1, words.length - 1));
+    } else if (key === 'Backspace') { // Handle backspace key
+      if (typedWords[currentIndex].length > 0) {
+        // Remove the last character from the current word
+        const updatedWords = typedWords.map((word, idx) =>
+          idx === currentIndex ? word.slice(0, -1) : word
+        );
+        setTypedWords(updatedWords);
+      } else if (currentIndex > 0) {
+        // Move to the previous word if the current word is empty
+        setCurrentIndex(prevIndex => prevIndex - 1);
+      }
     } else if (key.length === 1) {
-      const updatedWords = typedWords.map((word, idx) => idx === currentIndex ? word + key : word);
+      // Append the typed character to the current word
+      const updatedWords = typedWords.map((word, idx) =>
+        idx === currentIndex ? word + key : word
+      );
       setTypedWords(updatedWords);
     }
     calculateWPM(setWPM, wpm, correctWordsCount);
   };
 
+  
+  
   const renderWord = (word, index) => {
     if (index < currentIndex) {
       return word.split('').map((char, charIndex) => (
@@ -82,7 +98,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
 
   const calculateWPM = (setWPM, wpm, correctWordsCount) => {
     const endTime = Date.now();
-    const timeInSeconds = (endTime - startTime) / 1000;
+    const timeInSeconds = ((endTime - startTime)-timeRemaining) / 1000;
     const wpmValue = Math.round((correctWordsCount / timeInSeconds) * 60);
     setWPM(wpmValue);
   };
@@ -104,7 +120,6 @@ import  SpeedBar  from "../Speedbar/Speedbar";
       onBlur={() => setIsBlurred(true)}
       ref={divRef}
     >
-      {timeRemaining > 0 && <SpeedBar speed={carPosition} />}
       
       <div className="timer">{timeRemaining}</div>
       <div className="content">
@@ -191,12 +206,18 @@ import  SpeedBar  from "../Speedbar/Speedbar";
         }
         .car {
           position: absolute;
-          top: -20px;
+          top: -30px;
           transform: translateX(-25%);
           font-size: 12px;
         }
 
       `}</style>
+
+
+{timeRemaining > 0 &&<SpeedBar speed={carPosition} carType={carType} />}
+
+
+
     </div>
   );
 };

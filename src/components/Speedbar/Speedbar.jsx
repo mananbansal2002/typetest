@@ -1,10 +1,10 @@
 
 import React from "react";
 import  Car  from "../Car/Car";
-const SpeedBar = ({speed}) => {
+const SpeedBar = ({speed,carType}) => {
     return (
       <div className="speed-bar">
-        <Car speed = {speed}></Car>
+        <Car speed = {speed} carType={carType}></Car>
         <div className="speed-range"></div>
         <div className="speed-mark" style={{ left: `${0}px` }}>0</div>
         <div className="speed-mark" style={{ left: `${300 / 6}px` }}>50</div>
