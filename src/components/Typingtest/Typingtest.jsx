@@ -14,12 +14,109 @@ import  SpeedBar  from "../Speedbar/Speedbar";
   
   const generateWords = () => {
     const randomWords = [
-      'apple', 'banana', 'orange', 'grape', 'kiwi', 'strawberry', 'blueberry', 'pineapple', 'watermelon', 'mango',
-      'elephant', 'giraffe', 'lion', 'tiger', 'zebra', 'monkey', 'gorilla', 'rhinoceros', 'hippopotamus', 'cheetah',
-      'computer', 'keyboard', 'mouse', 'monitor', 'printer', 'laptop', 'tablet', 'smartphone', 'router', 'server',
-      'mountain', 'river', 'ocean', 'lake', 'forest', 'desert', 'island', 'canyon', 'valley', 'volcano'
-    ];
-    const selectedWords = randomWords.slice(0, 40);
+      "man",
+      "people",
+      "last",
+      "time",
+      "come",
+      "part",
+      "around",
+      "thing",
+      "after",
+      "if",
+      "these",
+      "want",
+      "well",
+      "he",
+      "without",
+      "never",
+      "time",
+      "back",
+      "from",
+      "than",
+      "great",
+      "about",
+      "show",
+      "few",
+      "number",
+      "know",
+      "year",
+      "first",
+      "school",
+      "tell",
+      "all",
+      "may",
+      "what",
+      "so",
+      "there",
+      "another",
+      "around",
+      "keep",
+      "could",
+      "get",
+      "use",
+      "in",
+      "turn",
+      "eye",
+      "do",
+      "see",
+      "use",
+      "only",
+      "develop",
+      "between",
+      "govern",
+      "only",
+      "place",
+      "right",
+      "if",
+      "more",
+      "general",
+      "some",
+      "a",
+      "part",
+      "both",
+      "govern",
+      "we",
+      "open",
+      "group",
+      "against",
+      "from",
+      "make",
+      "word",
+      "group",
+      "own",
+      "child",
+      "plan",
+      "feel",
+      "may",
+      "head",
+      "turn",
+      "stand",
+      "early",
+      "there",
+      "great",
+      "word",
+      "follow",
+      "under",
+      "must",
+      "they",
+      "order",
+      "house",
+      "too",
+      "also",
+      "first",
+      "how",
+      "early",
+      "point",
+      "now",
+      "what",
+      "possible",
+      "who",
+      "system",
+      "how"
+  ];
+
+    const selectedWords = randomWords.slice(0, 99);
     setWords(selectedWords);
     setTypedWords(new Array(selectedWords.length).fill(''));
   };
@@ -81,7 +178,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
   };
 
   
-  
+
   const renderWord = (word, index) => {
     if (index < currentIndex) {
       return word.split('').map((char, charIndex) => (
@@ -97,8 +194,9 @@ import  SpeedBar  from "../Speedbar/Speedbar";
   };
 
   const calculateWPM = (setWPM, wpm, correctWordsCount) => {
-    const endTime = Date.now();
-    const timeInSeconds = ((endTime - startTime)-timeRemaining) / 1000;
+    
+    const timeInSeconds = (timerDuration  - timeRemaining);
+    console.log(timeInSeconds);
     const wpmValue = Math.round((correctWordsCount / timeInSeconds) * 60);
     setWPM(wpmValue);
   };
