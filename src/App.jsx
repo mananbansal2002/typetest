@@ -1,19 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import  Result  from './components/Result/Result';
+import Chart from './components/Chart/Chart';
 import Typingtest from './components/Typingtest/Typingtest';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCar, faMotorcycle, faTruckPickup, faBicycle } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
+
+
 const App = () => {
   const [selectedTime, setSelectedTime] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [wpm, setWPM] = useState(null);
   const [carType, setCarType] = useState("car"); // Default car type is "car"
+    const vehicles = [
+      { type: 'car', icon: faCar },
+      { type: 'bike', icon: faMotorcycle },
+      { type: 'jeep', icon: faTruckPickup },
+      { type: 'cycle', icon: faBicycle },
+    ];
+  
 
-  const handleCarTypeChange = (event) => {
-    setCarType(event.target.value);
+
+  const handleCarTypeChange = (type) => {
+    setCarType( type);
   };
 
 
-
+  const [wpmData, setWpmData] = useState([]);
 
   const handleStart = (time) => {
     setSelectedTime(time);
@@ -26,6 +39,7 @@ const App = () => {
 
   const handleRestart = () => {
     setWPM(null);
+    setWpmData([]);
     setSelectedTime(0);
   };
 
@@ -47,19 +61,25 @@ const App = () => {
           setWPM={setWPM}
           wpm={wpm}
           carType = {carType}
+          wpmData = {wpmData}
+          setWpmData ={setWpmData}
         />
       )}
       {selectedTime !== 0 && !isTyping && <Result wpm={wpm} onRestart={handleRestart} />}
+      {selectedTime !== 0 && !isTyping && <Chart wpmData={wpmData} />}
       
 
 {!isTyping && wpm === null && (
-        <div className="dropdown">
-        <select value={carType} onChange={handleCarTypeChange}>
-          <option value="car">&#x1F697;</option> {/* Car icon */}
-          <option value="jeep">&#x1F699;</option> {/* Jeep icon */}
-          <option value="bike">&#x1F3CD;</option> {/* Bike icon */}
-        </select>
-        <span className="arrow"></span>
+        <div className="vehicle-selector">
+        {vehicles.map((vehicle) => (
+          <button
+            key={vehicle.type}
+            className={`vehicle-button ${carType === vehicle.type ? 'selected' : ''}`}
+            onClick={() => handleCarTypeChange(vehicle.type)}
+          >
+            <FontAwesomeIcon icon={vehicle.icon} size="2x" />
+          </button>
+        ))}
       </div>
     )}
 

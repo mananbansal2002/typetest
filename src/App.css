@@ -30,3 +30,28 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.vehicle-selector {
+  display: flex;
+  gap: 10px; /* Adjust the space between icons */
+  justify-content: center;
+  padding: 20px;
+}
+
+.vehicle-button {
+  background: none;
+  border: 2px solid transparent;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vehicle-button:hover,
+.vehicle-button.selected {
+  border-color: #007bff; /* Change as needed */
+}
+
+.vehicle-button:focus {
+  outline: none;
+}

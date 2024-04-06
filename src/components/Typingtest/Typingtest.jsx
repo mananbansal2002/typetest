@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import  SpeedBar  from "../Speedbar/Speedbar";
- const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType }) => {
+ const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType,wpmData, setWpmData }) => {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typedWords, setTypedWords] = useState([]);
@@ -126,6 +126,12 @@ import  SpeedBar  from "../Speedbar/Speedbar";
   }, []);
 
   useEffect(() => {
+    if (!isNaN(timerDuration - timeRemaining)) 
+    setWpmData([...wpmData, { time: timerDuration-timeRemaining, wpm: wpm }]);
+    // console.log(wpmData);
+  }, [timeRemaining]);
+
+  useEffect(() => {
     if (wpm !== null && timeRemaining === 0)
       onFinish(wpm);
   }, [timeRemaining, wpm]);
@@ -202,6 +208,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
   };
   const handleReset = () => {
     setCurrentIndex(0);
+    setWpmData([]);
     setTypedWords(new Array(10).fill(''));
     setTimeRemaining(timerDuration);
     setStartTime(null);

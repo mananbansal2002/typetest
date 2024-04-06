@@ -1,25 +1,29 @@
-// Modified Car Component
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCar, faMotorcycle, faTruckPickup, faBicycle } from '@fortawesome/free-solid-svg-icons';
 
 const Car = ({ speed, carType }) => {
   let carIcon;
   switch (carType) {
     case "car":
-      carIcon = "🚗"; // Car emoji
-      break;
-    case "jeep":
-      carIcon = "🚙"; // Jeep emoji
+      carIcon = faCar; // Car icon
       break;
     case "bike":
-      carIcon = "🏍"; // Motorcycle emoji
+      carIcon = faMotorcycle; // Bike icon
+      break;
+    case "jeep":
+      carIcon = faTruckPickup; // Jeep icon
+      break;
+    case "cycle":
+      carIcon = faBicycle; // Cycle icon
       break;
     default:
-      carIcon = "🚗"; // Default to car emoji
+      carIcon = faCar; // Default to car icon
   }
 
   return (
-    <div className="car" style={{ left: `${speed}px`, fontSize:"30px" }}>
-      {carIcon}
+    <div className="car" style={{ left: `${speed}px`, fontSize: "30px" }}>
+      <FontAwesomeIcon icon={carIcon} />
     </div>
   );
 };
