@@ -9,9 +9,9 @@ import React from "react";
           .result-container {
             margin: 50px auto;
             max-width: 400px;
-            background-color: #f0f0f0;
+            background-color: rgb(45, 45, 45);
             border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            color:white;
             padding: 20px;
             text-align: center;
           }

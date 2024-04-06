@@ -1,3 +1,6 @@
 canvas{
-   margin:20px 20vw 20px 20vw;
+   margin:10px 20vw 10px 20vw;
+   background-color: rgb(45,45,45);
+   padding:10px;
+   border-radius: 10px;
 }

@@ -22,7 +22,7 @@ const Car = ({ speed, carType }) => {
   }
 
   return (
-    <div className="car" style={{ left: `${speed}px`, fontSize: "30px" }}>
+    <div className="car" style={{ left: `${speed}px`, fontSize: "30px" ,color:"white"}}>
       <FontAwesomeIcon icon={carIcon} />
     </div>
   );

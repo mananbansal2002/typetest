@@ -3,7 +3,7 @@ import React from "react";
 import  Car  from "../Car/Car";
 const SpeedBar = ({speed,carType}) => {
     return (
-      <div className="speed-bar">
+      <div className="speed-bar" style={{color:"white"}}>
         <Car speed = {speed} carType={carType}></Car>
         <div className="speed-range"></div>
         <div className="speed-mark" style={{ left: `${0}px` }}>0</div>

@@ -238,12 +238,14 @@ import  SpeedBar  from "../Speedbar/Speedbar";
         .typing-box {
           margin: 50px auto;
           max-width: 800px;
-          background-color: #f0f0f0;
+          background-color:  rgb(34, 34, 34);
           border-radius: 10px;
-          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
           transition: filter 0.3s;
           overflow: hidden;
           position: relative;
+          border:none;
+          outline:none;
+          padding:10px;
         }
         .timer {
           position: absolute;
