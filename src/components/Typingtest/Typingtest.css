@@ -38,12 +38,13 @@
         .future {
           color: #919191;
         }
+
         .current-word {
-          background-color: #007bff;
           color: white;
           padding: 3px 5px;
           border-radius: 3px;
         }
+        
         span {
           font-family: 'Arial', sans-serif;
           font-size: 20px;
@@ -70,8 +71,9 @@
           }
         }
         
-        /* Styling for the span with the crnt class */
+    
         .crnt::before {
-          content: '|'; /* Add the '|' character */
+          content: '|'; 
           animation: blink 1s infinite;
+          color:rgb(221, 221, 0);
         }
