@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import  SpeedBar  from "../Speedbar/Speedbar";
- const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType,wpmData, setWpmData }) => {
+import "./Typingtest.css"; 
+ const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType,wpmData, setWpmData, themeColor }) => {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typedWords, setTypedWords] = useState([]);
@@ -218,7 +219,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
 
   return (
     <div
-      className={`typing-box ${isBlurred ? 'blurred' : ''}`}
+      className={`typing-box ${isBlurred ? 'blurred' : ''} ${themeColor}-secondary`}
       tabIndex="0"
       onKeyDown={handleKeyDown}
       onFocus={() => setIsBlurred(false)}
@@ -234,70 +235,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
           </span>
         ))}
       </div>
-      <style jsx>{`
-        .typing-box {
-          margin: 50px auto;
-          max-width: 800px;
-          background-color:  rgb(34, 34, 34);
-          border-radius: 10px;
-          transition: filter 0.3s;
-          overflow: hidden;
-          position: relative;
-          border:none;
-          outline:none;
-          padding:10px;
-        }
-        .timer {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          background-color: #007bff;
-          color: white;
-          padding: 5px 10px;
-          border-radius: 5px;
-        }
-        .blurred {
-          filter: blur(5px);
-        }
-        .content {
-          padding: 20px;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-        }
-        .correct {
-          color: #28a745;
-          font-weight: bold;
-        }
-        .incorrect {
-          color: #dc3545;
-          font-weight: bold;
-        }
-        .future {
-          color: #666;
-        }
-        .current-word {
-          background-color: #007bff;
-          color: white;
-          padding: 3px 5px;
-          border-radius: 3px;
-        }
-        span {
-          font-family: 'Arial', sans-serif;
-          font-size: 20px;
-          line-height: 1.5;
-          transition: color 0.3s;
-        }
-       
-        .car {
-          position: absolute;
-          top: -30px;
-          transform: translateX(-25%);
-          font-size: 12px;
-        }
-
-      `}</style>
-
+    
 
 {timeRemaining > 0 &&<SpeedBar speed={carPosition} carType={carType} />}
 

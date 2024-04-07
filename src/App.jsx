@@ -14,7 +14,7 @@ const App = () => {
   const [wpm, setWPM] = useState(null);
   const [carType, setCarType] = useState("car"); // Default car type is "car"
   const [themeOptionsVisible, setThemeOptionsVisible] = useState(false); // State to toggle theme options visibility
-  const [selectedTheme, setSelectedTheme] = useState('');
+  const [selectedTheme, setSelectedTheme] = useState('Black');
     const vehicles = [
       { type: 'car', icon: faCar },
       { type: 'bike', icon: faMotorcycle },
@@ -54,13 +54,17 @@ const App = () => {
   const toggleThemeOptions = () => {
     setThemeOptionsVisible(!themeOptionsVisible);
   };
-  const themeOptions = ['#333', '#444', '#555', '#666', '#777'];
-
+  const themeOptions = [
+    { name: 'Blue', primary: '#000236', secondary: '#00356e' },
+    { name: 'Orange', primary: '#2a1300', secondary: '#502400' },
+    { name: 'Green', primary: '#052700', secondary: '#093d00' },
+    { name: 'Black', primary: '#242424', secondary: '#424242' },
+  ];
 
 
   return (
-    <div className="container">
- <nav className="navbar">
+    <div className={`container ${selectedTheme}`}>
+ <nav className={`navbar ${selectedTheme}-secondary`}>
         <div className="logo">
           <span className="typemeter-logo">Typemeter</span>
         </div>
@@ -84,8 +88,8 @@ const App = () => {
         {themeOptionsVisible && (
           <div className="theme-options-container">
             
-              {themeOptions.map((color) => (
-                <div key={color} className="theme-option" style={{ backgroundColor: color }} onClick={() => handleThemeSelect(color)}></div>
+              {themeOptions.map((theme) => (
+                <div key={theme} className="theme-option" style={{ backgroundColor: theme.secondary }} onClick={() => handleThemeSelect(theme.name)}></div>
               ))}
            
           </div>
@@ -101,10 +105,12 @@ const App = () => {
           carType = {carType}
           wpmData = {wpmData}
           setWpmData ={setWpmData}
+          themeColor={selectedTheme
+          }
         />
       )}
-      {selectedTime !== 0 && !isTyping && <Result wpm={wpm} onRestart={handleRestart} />}
-      {selectedTime !== 0 && !isTyping && <Chart wpmData={wpmData} />}
+      {selectedTime !== 0 && !isTyping && <Result wpm={wpm} onRestart={handleRestart} themeColor ={selectedTheme}/>}
+      {selectedTime !== 0 && !isTyping && <Chart wpmData={wpmData}  themeColor ={selectedTheme}/> }
       
 
 {!isTyping && wpm === null && (

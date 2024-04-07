@@ -1,7 +1,8 @@
 import React from "react";
- const Result = ({ wpm, onRestart }) => {
+ const Result = ({ wpm, onRestart, themeColor }) => {
+  console.log(themeColor);
     return (
-      <div className="result-container">
+      <div className={`result-container ${themeColor}-secondary`}>
         <h2>Typing Test Result</h2>
         <p>Your Words Per Minute (WPM): <span className="wpm">{wpm}</span></p>
         <button className="restart-btn" onClick={onRestart}>Restart</button>
@@ -9,7 +10,7 @@ import React from "react";
           .result-container {
             margin: 50px auto;
             max-width: 400px;
-            background-color: rgb(45, 45, 45);
+            // background-color: rgb(45, 45, 45);
             border-radius: 10px;
             color:white;
             padding: 20px;

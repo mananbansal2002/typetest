@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart as Chartjs } from 'chart.js/auto';
 import './Chart.css'
-const Chart = ({ wpmData }) => {
+const Chart = ({ wpmData , themeColor}) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -64,7 +64,7 @@ const Chart = ({ wpmData }) => {
     }
   }, [wpmData]);
 
-  return <canvas ref={chartRef} />;
+  return <canvas  className={` ${themeColor}-secondary`}ref={chartRef} />;
 
 };
 

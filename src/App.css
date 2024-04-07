@@ -141,3 +141,46 @@ button:hover {
   margin: 3px;
   cursor: pointer;
 }
+
+
+
+/* Theme colors */
+.Blue {
+  background-color: #000236;
+  color: #ffffff;
+}
+
+.Orange {
+  background-color: #2a1300;
+  color: #ffffff;
+}
+
+.Green {
+  background-color: #052700;
+  color: #ffffff;
+}
+
+.Black {
+  background-color: #242424;
+  color: #ffffff;
+}
+
+.Blue-secondary {
+  background-color: #00356e;
+  color: #ffffff;
+}
+
+.Orange-secondary {
+  background-color: #502400;
+  color: #ffffff;
+}
+
+.Green-secondary {
+  background-color: #093d00;
+  color: #ffffff;
+}
+
+.Black-secondary {
+  background-color: #424242;
+  color: #ffffff;
+}
