@@ -1,19 +1,25 @@
+import React, { useEffect, useRef, useState } from "react";
+import Car from "../Car/Car";
+import "./Speedbar.css"; // Import CSS file for SpeedBar styling
 
-import React from "react";
-import  Car  from "../Car/Car";
-const SpeedBar = ({speed,carType}) => {
-    return (
-      <div className="speed-bar" style={{color:"white"}}>
-        <Car speed = {speed} carType={carType}></Car>
-        <div className="speed-range"></div>
-        <div className="speed-mark" style={{ left: `${0}px` }}>0</div>
-        <div className="speed-mark" style={{ left: `${300 / 6}px` }}>50</div>
-        <div className="speed-mark" style={{ left: `${(300 / 6) * 2}px` }}>100</div>
-        <div className="speed-mark" style={{ left: `${(300 / 6) * 3}px` }}>150</div>
-        <div className="speed-mark" style={{ left: `${(300 / 6) * 4}px` }}>200</div>
-        <div className="speed-mark" style={{ left: `${(300 / 6) * 5}px` }}>250</div>
+const SpeedBar = ({ speed, carType }) => {
+  const speedBarRef = useRef(null);
+
+
+  return (
+    <div className="speed-bar-container">
+      <Car speed={speed} carType={carType}></Car>
+      <div className="straight-line"></div> {/* White line */}
+      <div className="speed-bar" ref={speedBarRef}>  
+        <div className="speed-mark mark-1">0</div>
+        <div className="speed-mark mark-2">50</div>
+        <div className="speed-mark mark-3">100</div>
+        <div className="speed-mark mark-4">150</div>
+        <div className="speed-mark mark-5">200</div>
+        <div className="speed-mark mark-5">250</div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default SpeedBar;
+export default SpeedBar;

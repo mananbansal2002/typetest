@@ -45,7 +45,11 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Typing Test</h1>
+ <nav className="navbar">
+        <div className="logo">
+          <span className="typemeter-logo">Typemeter</span>
+        </div>
+
       {!isTyping && wpm === null && (
         <div className="timer-options">
           <button onClick={() => handleStart(15)}>15s</button>
@@ -53,6 +57,8 @@ const App = () => {
           <button onClick={() => handleStart(60)}>60s</button>
         </div>
       )}
+      <div></div>
+            </nav>
       {isTyping && (
         <Typingtest
           timerDuration={selectedTime}

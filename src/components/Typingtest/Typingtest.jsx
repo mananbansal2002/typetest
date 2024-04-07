@@ -288,29 +288,7 @@ import  SpeedBar  from "../Speedbar/Speedbar";
           line-height: 1.5;
           transition: color 0.3s;
         }
-        .speed-bar {
-          position: relative;
-          width: 300px;
-          height: 20px;
-          background-color: #ddd;
-          margin: 20px auto;
-          border-radius: 5px;
-        }
-        .speed-range {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          background-color: #aaa;
-          transform: translateY(-50%);
-        }
-        .speed-mark {
-          position: absolute;
-          bottom: -20px;
-          transform: translateX(-50%);
-          font-size: 12px;
-        }
+       
         .car {
           position: absolute;
           top: -30px;

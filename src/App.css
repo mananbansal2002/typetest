@@ -1,22 +1,65 @@
+/* Updated CSS for Timer Options to Match the Vehicle Selector Theme */
+
+/* Keeping the core container and text styling */
 .container {
   background-color: rgb(34, 34, 34);
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  margin-top: 0px;
+  min-height: 97vh;
   font-family: 'Arial', sans-serif;
 }
-h1 {
-  color: #007bff;
-  margin-bottom: 20px;
+
+
+/* Navbar styling */
+.navbar {
+  background-color: #333; /* Background color for the navbar */
+  color: #fff; /* Text color for navbar items */
+  padding: 10px 20px; /* Padding around navbar items */
+  margin:0;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Distribute items horizontally */
+  width: 97vw;
 }
-.timer-options {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+
+/* Logo styling */
+.logo {
+  font-family: 'Arial', sans-serif; /* Choose your desired font family */
 }
+
+.typemeter-logo {
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optionally, make the logo bold */
+  color: rgb(197, 197, 197); /* Choose your desired color for the logo */
+}
+
+.typemeter-logo:hover {
+  
+  color: white; /* Choose your desired color for the logo */
+}
+
+/* Enhancing Timer Options to match the Vehicle Selector Theme */
+.timer-options button {
+  background: none; /* Match the vehicle button background */
+  color: gray; /* Text color to match the vehicle icons */
+   padding: 8px 16px; /* Padding to keep buttons tactile */
+  font-size: 16px; /* Keeping the font size for legibility */
+  border-radius: 10px; /* Rounded corners like vehicle buttons */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for interaction feedback */
+}
+
+.timer-options button:hover,
+.timer-options button:active {
+
+  color: white; /* Text color change for contrast */
+  
+}
+
+/* No changes to the vehicle-selector and vehicle-button classes */
+
+
 button {
   padding: 8px 16px;
   font-size: 16px;

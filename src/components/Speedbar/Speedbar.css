@@ -1,0 +1,25 @@
+.speed-bar-container {
+    position: relative;
+  }
+  
+  .speed-bar {
+    position: relative;
+    display: flex;
+    color: white;
+    justify-content:space-between;
+  }
+  
+   /* .speed-range {
+    flex: 1;
+  }
+  
+  */
+  
+  .straight-line {
+    width: 100%;
+    margin-top: 20px;
+    height: 2px; /* Adjust the thickness of the line */
+    background-color: white;
+    z-index: 9999; /* Ensure the line is above other content */
+  }
+  
