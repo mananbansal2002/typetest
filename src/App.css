@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 0px;
-  min-height: 97vh;
+  min-height: 100vh;
   font-family: 'Arial', sans-serif;
 }
 
@@ -146,17 +146,17 @@ button:hover {
 
 /* Theme colors */
 .Blue {
-  background-color: #000236;
+  background-color: #1b0f45;
   color: #ffffff;
 }
 
 .Orange {
-  background-color: #2a1300;
+  background-color: #492012;
   color: #ffffff;
 }
 
 .Green {
-  background-color: #052700;
+  background-color: #1c4720;
   color: #ffffff;
 }
 
@@ -166,17 +166,17 @@ button:hover {
 }
 
 .Blue-secondary {
-  background-color: #00356e;
+  background-color: #332558;
   color: #ffffff;
 }
 
 .Orange-secondary {
-  background-color: #502400;
+  background-color: #5d3628;
   color: #ffffff;
 }
 
 .Green-secondary {
-  background-color: #093d00;
+  background-color: #345a36;
   color: #ffffff;
 }
 

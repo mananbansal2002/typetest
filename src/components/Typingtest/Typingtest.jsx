@@ -193,7 +193,7 @@ import "./Typingtest.css";
       ));
     } else if (index === currentIndex) {
       return word.split('').map((char, charIndex) => (
-        <span key={charIndex} className={charIndex < typedWords[index].length ? (typedWords[index][charIndex] === char ? 'correct' : 'incorrect') : 'pending'}>{char}</span>
+        <span key={charIndex} className={charIndex < typedWords[index].length ? (typedWords[index][charIndex] === char ? 'correct' : 'incorrect') :charIndex === typedWords[index].length?'crnt': 'pending'}>{char}</span>
       ));
     } else {
       return <span key={index} className="future">{word}</span>;

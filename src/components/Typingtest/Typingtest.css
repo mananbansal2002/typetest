@@ -36,7 +36,7 @@
           font-weight: bold;
         }
         .future {
-          color: #666;
+          color: #919191;
         }
         .current-word {
           background-color: #007bff;
@@ -56,4 +56,22 @@
           top: -30px;
           transform: translateX(-25%);
           font-size: 12px;
+        }
+
+        @keyframes blink {
+          0% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+        
+        /* Styling for the span with the crnt class */
+        .crnt::before {
+          content: '|'; /* Add the '|' character */
+          animation: blink 1s infinite;
         }

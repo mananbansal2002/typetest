@@ -89,7 +89,7 @@ const App = () => {
           <div className="theme-options-container">
             
               {themeOptions.map((theme) => (
-                <div key={theme} className="theme-option" style={{ backgroundColor: theme.secondary }} onClick={() => handleThemeSelect(theme.name)}></div>
+                <div key={theme} className={`theme-option ${theme.name}`} onClick={() => handleThemeSelect(theme.name)}></div>
               ))}
            
           </div>
