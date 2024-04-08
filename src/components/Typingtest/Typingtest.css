@@ -85,7 +85,7 @@
             border: none;
             outline: none;
             font-size: inherit;
-            padding: 0px;
+            padding: 5px;
             box-sizing: border-box;
             opacity: 0; /* Hide the input text */
           }
