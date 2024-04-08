@@ -5,7 +5,7 @@ import './Chart.css'
 const Chart = ({ wpmData , themeColor}) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
-console.log(wpmData);
+// console.log(wpmData);
   useEffect(() => {
     if (chartInstance.current) {
       chartInstance.current.destroy();

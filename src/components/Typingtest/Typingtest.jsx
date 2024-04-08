@@ -154,10 +154,19 @@ import "./Typingtest.css";
     }
   }, [timeRemaining]);
 
-  const handleKeyDown = (e) => {
+  const handleInput = (event) => {
     if (isBlurred) return;
-  
+    handleAllKeyPress(event.target.value);
+    event.target.value="";
+  };
+
+  const handleKeyDown = (e) => {
     const { key } = e;
+    handleAllKeyPress(key);
+  };
+
+  const handleAllKeyPress =(key)=> {
+    
     if (startTime === null) {
       setStartTime(Date.now());
     }
@@ -185,7 +194,7 @@ import "./Typingtest.css";
       setTypedWords(updatedWords);
     }
     calculateWPM(setWPM, wpm, correctWordsCount);
-  };
+  }
 
   
 
@@ -206,7 +215,7 @@ import "./Typingtest.css";
   const calculateWPM = (setWPM, wpm, correctWordsCount) => {
     
     const timeInSeconds = (timerDuration  - timeRemaining);
-    console.log(timeInSeconds);
+    // console.log(timeInSeconds);
     const wpmValue = Math.round((correctWordsCount / timeInSeconds) * 60);
     setWPM(wpmValue);
   };
@@ -229,7 +238,11 @@ import "./Typingtest.css";
       onBlur={() => setIsBlurred(true)}
       ref={divRef}
     >
-      
+      <input className='mobile-input'  tabIndex="0"
+      onChange={handleInput}
+      onFocus={() => setIsBlurred(false)}
+      onBlur={() => setIsBlurred(true)}
+      ></input>
       <div className={  `timer ${themeColor}`}>{timeRemaining}</div>
       <div className="content">
         {words.map((word, index) => (
