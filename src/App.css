@@ -42,7 +42,7 @@
 /* Enhancing Timer Options to match the Vehicle Selector Theme */
 .timer-options button {
   background: none; /* Match the vehicle button background */
-  color: gray; /* Text color to match the vehicle icons */
+  color: lightgray; /* Text color to match the vehicle icons */
    padding: 8px 16px; /* Padding to keep buttons tactile */
   font-size: 16px; /* Keeping the font size for legibility */
   border-radius: 10px; /* Rounded corners like vehicle buttons */
@@ -75,7 +75,7 @@ button {
   transition: background-color 0.3s;
 }
 button:hover {
-  background-color: #0056b3;
+  /* background-color: #0056b3; */
 }
 
 .theme-button{

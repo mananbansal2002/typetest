@@ -5,12 +5,12 @@ import './Chart.css'
 const Chart = ({ wpmData , themeColor}) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
-
+console.log(wpmData);
   useEffect(() => {
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
-
+   
     if (chartRef.current) {
       const ctx = chartRef.current.getContext('2d');
 

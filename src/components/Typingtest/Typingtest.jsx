@@ -127,8 +127,11 @@ import "./Typingtest.css";
   }, []);
 
   useEffect(() => {
-    if (!isNaN(timerDuration - timeRemaining)) 
+    
+    if (!isNaN(wpm)) 
     setWpmData([...wpmData, { time: timerDuration-timeRemaining, wpm: wpm }]);
+    else 
+    setWpmData([...wpmData, { time: timerDuration-timeRemaining, wpm: 0 }]);
     // console.log(wpmData);
   }, [timeRemaining]);
 
@@ -227,7 +230,7 @@ import "./Typingtest.css";
       ref={divRef}
     >
       
-      <div className="timer">{timeRemaining}</div>
+      <div className={  `timer ${themeColor}`}>{timeRemaining}</div>
       <div className="content">
         {words.map((word, index) => (
           <span key={index} className={index === currentIndex ? 'current-word' : ''}>
