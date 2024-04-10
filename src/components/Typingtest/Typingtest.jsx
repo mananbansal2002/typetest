@@ -80,7 +80,7 @@ const options = {
     }
     if (key === ' ' && typedWords[currentIndex] !== '') {
       if (typedWords[currentIndex] === words[currentIndex]) {
-        setCorrectWordsCount(prevCount => prevCount + 1);
+        setCorrectWordsCount(prevCount => prevCount + words[currentIndex].length);
       }
       setCurrentIndex(prevIndex => Math.min(prevIndex + 1, words.length - 1));
     } else if (key === 'Backspace') { // Handle backspace key
@@ -124,7 +124,7 @@ const options = {
     
     const timeInSeconds = (timerDuration  - timeRemaining);
     // console.log(timeInSeconds);
-    const wpmValue = Math.round((correctWordsCount / timeInSeconds) * 60);
+    const wpmValue = Math.round((correctWordsCount / (5.1*timeInSeconds)) * 60);
     setWPM(wpmValue);
   };
   const handleReset = () => {
