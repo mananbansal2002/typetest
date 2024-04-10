@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import  SpeedBar  from "../Speedbar/Speedbar";
 import "./Typingtest.css"; 
- const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType,wpmData, setWpmData, themeColor }) => {
+import { generateAdvancedWordsSet } from '../utils/GenerateWords';
+
+ const Typingtest = ({ timerDuration, onReset, onFinish, setWPM, wpm, carType,wpmData, setWpmData, themeColor, caps,punctuations,numbers }) => {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typedWords, setTypedWords] = useState([]);
@@ -11,115 +13,19 @@ import "./Typingtest.css";
   const [timeRemaining, setTimeRemaining] = useState(timerDuration);
   const [startTime, setStartTime] = useState(null);
   const [carPosition, setCarPosition] = useState(0);
+ 
+
   const divRef = useRef(null);
   
   const generateWords = () => {
-    const randomWords = [
-      "man",
-      "people",
-      "last",
-      "time",
-      "come",
-      "part",
-      "around",
-      "thing",
-      "after",
-      "if",
-      "these",
-      "want",
-      "well",
-      "he",
-      "without",
-      "never",
-      "time",
-      "back",
-      "from",
-      "than",
-      "great",
-      "about",
-      "show",
-      "few",
-      "number",
-      "know",
-      "year",
-      "first",
-      "school",
-      "tell",
-      "all",
-      "may",
-      "what",
-      "so",
-      "there",
-      "another",
-      "around",
-      "keep",
-      "could",
-      "get",
-      "use",
-      "in",
-      "turn",
-      "eye",
-      "do",
-      "see",
-      "use",
-      "only",
-      "develop",
-      "between",
-      "govern",
-      "only",
-      "place",
-      "right",
-      "if",
-      "more",
-      "general",
-      "some",
-      "a",
-      "part",
-      "both",
-      "govern",
-      "we",
-      "open",
-      "group",
-      "against",
-      "from",
-      "make",
-      "word",
-      "group",
-      "own",
-      "child",
-      "plan",
-      "feel",
-      "may",
-      "head",
-      "turn",
-      "stand",
-      "early",
-      "there",
-      "great",
-      "word",
-      "follow",
-      "under",
-      "must",
-      "they",
-      "order",
-      "house",
-      "too",
-      "also",
-      "first",
-      "how",
-      "early",
-      "point",
-      "now",
-      "what",
-      "possible",
-      "who",
-      "system",
-      "how"
-  ];
-
-    const selectedWords = randomWords.slice(0, 99);
-    setWords(selectedWords);
-    setTypedWords(new Array(selectedWords.length).fill(''));
+    
+const options = {
+  caps: caps,
+  numbers: numbers,
+  punctuation: punctuations,
+};
+    setWords(generateAdvancedWordsSet(50, options));
+    setTypedWords(new Array(50).fill(''));
   };
 
   useEffect(() => {
@@ -228,7 +134,7 @@ import "./Typingtest.css";
     setWPM(null);
     onReset();
   };
-
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   return (
     <div
       className={`typing-box ${isBlurred ? 'blurred' : ''} ${themeColor}-secondary`}
@@ -238,11 +144,11 @@ import "./Typingtest.css";
       onBlur={() => setIsBlurred(true)}
       ref={divRef}
     >
-      <input className='mobile-input'  tabIndex="0"
+      {isMobile&& <input className='mobile-input'  tabIndex="0"
       onChange={handleInput}
       onFocus={() => setIsBlurred(false)}
       onBlur={() => setIsBlurred(true)}
-      ></input>
+      ></input>}
       <div className={  `timer ${themeColor}`}>{timeRemaining}</div>
       <div className="content">
         {words.map((word, index) => (

@@ -4,7 +4,6 @@ import Chart from './components/Chart/Chart';
 import Typingtest from './components/Typingtest/Typingtest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faMotorcycle, faTruckPickup, faBicycle } from '@fortawesome/free-solid-svg-icons';
-
 import './App.css';
 
 
@@ -15,6 +14,10 @@ const App = () => {
   const [carType, setCarType] = useState("car"); // Default car type is "car"
   const [themeOptionsVisible, setThemeOptionsVisible] = useState(false); // State to toggle theme options visibility
   const [selectedTheme, setSelectedTheme] = useState('Black');
+  const [caps, setCaps] = useState(false);
+  const [numbers, setNumbers] = useState(false);
+  const [punctuation, setPunctuaions] = useState(false);
+
     const vehicles = [
       { type: 'car', icon: faCar },
       { type: 'bike', icon: faMotorcycle },
@@ -48,6 +51,7 @@ const App = () => {
 
   const handleThemeSelect = (themeColor) => {
     setSelectedTheme(themeColor);
+    setThemeOptionsVisible(false);
     // Apply theme color to the application or store it in localStorage for persistence
   };
 
@@ -70,12 +74,13 @@ const App = () => {
         </div>
 
       {!isTyping && wpm === null && (
-        <div className="timer-options">
+        <div className="game-options">
           <button onClick={() => handleStart(15)}>15s</button>
           <button onClick={() => handleStart(30)}>30s</button>
           <button onClick={() => handleStart(60)}>60s</button>
         </div>
       )}
+
        <div className="theme-selector">
           <button className="theme-button" onClick={toggleThemeOptions}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
@@ -105,8 +110,10 @@ const App = () => {
           carType = {carType}
           wpmData = {wpmData}
           setWpmData ={setWpmData}
-          themeColor={selectedTheme
-          }
+          themeColor={selectedTheme}
+          caps = {caps}
+          punctuations={punctuation}
+          numbers={numbers}
         />
       )}
       {selectedTime !== 0 && !isTyping && <Result wpm={wpm} onRestart={handleRestart} themeColor ={selectedTheme}/>}
@@ -126,6 +133,13 @@ const App = () => {
         ))}
       </div>
     )}
+      {!isTyping && wpm === null && (
+        <div className="game-options">
+          <button onClick={() => setNumbers(!numbers)} className={`${numbers?"selected":""}`}>Numbers</button>
+          <button onClick={() => setCaps(!caps)} className={`${caps?"selected":""}`}>Capitals</button>
+          <button onClick={() => setPunctuaions(!punctuation)} className={`${punctuation?"selected":""}`}>Punctuaions</button>
+        </div>
+      )}
 
     </div>
   );

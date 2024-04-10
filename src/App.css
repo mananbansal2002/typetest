@@ -40,7 +40,7 @@
 }
 
 /* Enhancing Timer Options to match the Vehicle Selector Theme */
-.timer-options button {
+.game-options button {
   background: none; /* Match the vehicle button background */
   color: lightgray; /* Text color to match the vehicle icons */
    padding: 8px 16px; /* Padding to keep buttons tactile */
@@ -50,12 +50,12 @@
   transition: all 0.3s ease; /* Smooth transition for interaction feedback */
 }
 
-.timer-options{
+.game-options{
   display: flex;
   justify-content: center;
 }
-.timer-options button:hover,
-.timer-options button:active {
+.game-options button:hover,
+.game-options button:active {
 
   color: white; /* Text color change for contrast */
   
@@ -76,6 +76,14 @@ button {
 }
 button:hover {
   /* background-color: #0056b3; */
+}
+
+button.selected{
+  color:rgb(255, 255, 255);
+   
+  padding:10px;
+  margin:0px 10px 0px 10px;
+  border:1px solid #007bff;
 }
 
 .theme-button{
