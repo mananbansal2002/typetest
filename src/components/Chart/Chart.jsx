@@ -30,6 +30,7 @@ const Chart = ({ wpmData, themeColor }) => {
             borderColor: 'rgba(75, 192, 192, 1)', // Solid color for current data
             backgroundColor: 'rgba(75, 192, 192, 0.2)', // Solid color for current data
             borderWidth: 1,
+            lineTension:0.4
           }, {
             label: 'Previous WPM',
             data: previousData.map((entry) => entry.wpm),
@@ -37,6 +38,7 @@ const Chart = ({ wpmData, themeColor }) => {
             backgroundColor: 'rgba(192, 192, 192, 0.2)', // Gray color for previous data
             borderWidth: 1,
             borderDash: [5, 5], // Dashed line style for previous data
+            lineTension:0.4
           }],
         },
         options: {

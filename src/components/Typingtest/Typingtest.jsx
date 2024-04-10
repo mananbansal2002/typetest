@@ -34,7 +34,7 @@ const options = {
 
   useEffect(() => {
     
-    if (!isNaN(wpm)) 
+    if (!isNaN(wpm) && wpm!=null) 
     setWpmData([...wpmData, { time: timerDuration-timeRemaining, wpm: wpm }]);
     else 
     setWpmData([...wpmData, { time: timerDuration-timeRemaining, wpm: 0 }]);
