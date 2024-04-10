@@ -42,23 +42,25 @@ const options = {
   }, [timeRemaining]);
 
   useEffect(() => {
-    if (wpm !== null && timeRemaining === 0)
+    if (wpm !== null && timeRemaining <= 0)
       onFinish(wpm);
   }, [timeRemaining, wpm]);
 
   useEffect(() => {
     calculateWPM(setWPM, wpm, correctWordsCount);
-    if (timeRemaining === 0) {
+    if (timeRemaining <= 0) {
+      if(!isBlurred)
       setIsBlurred(true);
       calculateWPM(setWPM, wpm, correctWordsCount);
-    } else {
+    } else if(isBlurred===false){
       const timer = setTimeout(() => {
         setTimeRemaining(prevTime => prevTime - 1);
         setCarPosition(prevPosition => (wpm || 0));
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [timeRemaining]);
+     
+  }, [timeRemaining,isBlurred]);
 
   const handleInput = (event) => {
     if (isBlurred) return;
