@@ -47,6 +47,7 @@ const App = () => {
     setWPM(null);
     setWpmData([]);
     setSelectedTime(0);
+    localStorage.setItem('wpmData', JSON.stringify(wpmData));
   };
 
   const handleThemeSelect = (themeColor) => {
