@@ -21,14 +21,18 @@
   display: flex; /* Use flexbox for layout */
   justify-content: space-between; /* Distribute items horizontally */
   width: 97vw;
+  align-items: center; 
 }
 
 /* Logo styling */
 .logo {
+  display: flex;
+  align-items: center;
   font-family: 'Arial', sans-serif; /* Choose your desired font family */
 }
 
 .typemeter-logo {
+  margin-left:10px;
   font-size: 24px; /* Adjust the font size as needed */
   font-weight: bold; /* Optionally, make the logo bold */
   color: rgb(197, 197, 197); /* Choose your desired color for the logo */
@@ -135,11 +139,11 @@ button.selected{
   right: 30px; /* Align to the right */
   display: flex;
   flex-direction: column;
-  background-color: #a5a5a5; /* Theme options background color */
+  background-color: #ffffff; /* Theme options background color */
   
   border-radius: 50px;
   padding: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  
 }
 
 .theme-option {

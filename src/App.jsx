@@ -5,6 +5,8 @@ import Typingtest from './components/Typingtest/Typingtest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faMotorcycle, faTruckPickup, faBicycle } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
+import './logo.svg';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 
 const App = () => {
@@ -66,16 +68,23 @@ const App = () => {
     { name: 'Black', primary: '#242424', secondary: '#424242' },
   ];
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
     <div className={`container ${selectedTheme}`}>
  <nav className={`navbar ${selectedTheme}-secondary`}>
         <div className="logo">
-          <span className="typemeter-logo">Typemeter</span>
+          {/* <svg src='./logo.svg'></svg> */}
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 64 64" fill="none">
+<path d="M64 16C64 5.33333 58.6667 0 48 0H16C5.33333 0 0 5.33333 0 16V48C0 58.6667 5.33333 64 16 64H48C58.6667 64 64 58.6667 64 48" fill="#323437"/>
+<path d="M56 25.1L53.36 50.5L50.88 46.3V34.1C50.7093 31.0267 49.216 29.49 46.4 29.49C44.0933 29.746 42.94 31.026 42.94 33.33V46.23L40.36 50.5L37.82 46.23V34.73C37.9053 31.23 36.412 29.48 33.34 29.48C31.0333 29.736 29.88 31.016 29.88 33.32V46.22L28 48L26.38 50V27.85C26.38 21.5367 26.3967 19.9 31.09 19.9C33.9033 19.9 36.96 25.7033 38.84 28.01C40.2933 25.7033 42.3 24.55 44.86 24.55C47.1667 24.55 49.1733 25.36 50.88 26.98L53.09 28.01M18.09 9.5L17.86 25.5L22.7 25.02V30.14L18.09 28.7372V46.24L12.36 55.5L13.36 29L8.36 30.14V25.02L13.36 25.5L12.97 19.9" fill="#E2B714"/>
+</svg>
+           { !isMobile && <span className="typemeter-logo">Typemeter</span>}
         </div>
 
       {!isTyping && wpm === null && (
         <div className="game-options">
+            <FontAwesomeIcon icon={faClock} size="2x" />
           <button onClick={() => handleStart(15)}>15s</button>
           <button onClick={() => handleStart(30)}>30s</button>
           <button onClick={() => handleStart(60)}>60s</button>
