@@ -136,11 +136,11 @@ button.selected{
 .theme-options-container {
   position: absolute;
   top:60px; /* Position below theme button */
-  right: 30px; /* Align to the right */
+  right: 2%; /* Align to the right */
   display: flex;
   flex-direction: column;
+  z-index: 10;
   background-color: #ffffff; /* Theme options background color */
-  
   border-radius: 50px;
   padding: 5px;
   
@@ -154,6 +154,11 @@ button.selected{
   cursor: pointer;
 }
 
+.info{
+  position: absolute;
+  bottom:50%;
+  opacity: 30%;
+}
 
 
 /* Theme colors */

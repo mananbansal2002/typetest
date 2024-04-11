@@ -150,7 +150,9 @@ const App = () => {
           <button onClick={() => setPunctuaions(!punctuation)} className={`${punctuation?"selected":""}`}>Punctuaions</button>
         </div>
       )}
-
+    {!isTyping && wpm === null && (
+      <span className='info'>Choose time to start</span>
+    )}
     </div>
   );
 };
