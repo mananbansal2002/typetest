@@ -5,7 +5,7 @@ import './Chart.css';
 const Chart = ({ wpmData, themeColor }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
-
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   useEffect(() => {
     let previousData = [];
     const storedData = localStorage.getItem('wpmData');
@@ -69,8 +69,8 @@ const Chart = ({ wpmData, themeColor }) => {
               },
             },
           },
-          aspectRatio: 5, // Aspect ratio of 1 for square chart
-          maintainAspectRatio: true, // Do not maintain aspect ratio
+          aspectRatio: isMobile?1:5, // Aspect ratio of 1 for square chart
+          maintainAspectRatio: true,// Do not maintain aspect ratio
           responsive: true, // Make chart responsive
         },
       });
